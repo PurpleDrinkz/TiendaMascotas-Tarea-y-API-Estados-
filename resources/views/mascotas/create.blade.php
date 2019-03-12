@@ -65,7 +65,15 @@
     
 
     function doChangePais(event) {
-        $.get("/api/estados/" + $("#slcPais").val(), function (data) {console.log(data) });
+        $.get("/api/estados/" + $("#slcPais").val(), function (data) {//console.log(data) 
+
+            $("#slcEstado").empty();
+            $("#slcEstado").append('<option selected disabled value="" >Elige un estado</option>');
+            for(var 1=0; i<data.lenght; i++)
+            {
+                $("#slcEstado").append('<option value="'+data[i].id + '">' + data '</option>')
+            }
+        });
     }
 
     $(function () {
